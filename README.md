@@ -1,0 +1,2 @@
+# fansPageSlider
+### a Sails application
