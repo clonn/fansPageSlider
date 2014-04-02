@@ -15,53 +15,13 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
-var request = require("request");
-var asnyc = require("async");
 
-
-function getPhotos (url, cb) {
-
-  request({
-    url: url
-  }, function (err, body, result) {
-    // console.log(result);
-    var data = JSON.parse(result);
-    data = data.data;
-    if (data.length < 1) {
-      return;
-    }
-    savePhoto(data, function () {
-      console.log("save all photos done");
-      cb(data);
-    });
-  });
-}
-
-function savePhoto (data, cb) {
-  console.log("save photos");
-  async.each(data, function (val, callback) {
-    Photos.create({
-      id: val.id,
-      title: val.name,
-      url: val.images[0].source,
-      width: val.images[0].width,
-      height: val.images[0].height
-    })
-    .done(function (){
-      callback();
-    });
-  }, function (err) {
-    cb();
-  });
-}
 
 module.exports = {
     
   index: function (req, res) {
 
-    getPhotos("http://graph.facebook.com/480994675249305/photos?type=uploaded", function (data) {
-      res.view("home/index");    
-    });
+    res.view("home/index");
 
   },
 
