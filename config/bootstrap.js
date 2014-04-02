@@ -64,7 +64,7 @@ module.exports.bootstrap = function (cb) {
     });
   }
 
-  getPhotos("http://graph.facebook.com/480994675249305/photos?type=uploaded");
+  // getPhotos("http://graph.facebook.com/480994675249305/photos?type=uploaded");
 
   // It's very important to trigger this callack method when you are finished 
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)

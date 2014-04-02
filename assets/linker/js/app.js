@@ -65,6 +65,9 @@ var data = [];
     console.log(lists);
     datas = [];
     lists.forEach(function (val, idx) {
+      if (idx > 300) {
+        return;
+      }
       datas.push({
         image : val.url, 
         title : val.title, 
