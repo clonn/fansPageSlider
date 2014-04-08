@@ -16,7 +16,17 @@ module.exports.policies = {
 
   // Default policy for all controllers and actions
   // (`true` allows public access) 
-  '*': true
+  '*': false,
+
+  MainController: {
+  	"index": true
+  },
+  PhotosController: {
+  	"*": true,
+  	"update": false,
+  	"delete": false
+  }
+
 
   /*
 	// Here's an example of adding some policies to a controller
