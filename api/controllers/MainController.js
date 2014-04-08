@@ -21,7 +21,9 @@ module.exports = {
     
   index: function (req, res) {
 
-    res.view("home/index");
+    res.view("home/index", {
+       title: 'Photo slider for facebook fans page - a sails.js prototype and demo'
+    });
 
   },
 
